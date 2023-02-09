@@ -26,10 +26,10 @@ function newDate() {
 	let m = Math.floor((gap % (hour)) / (minute));
 	let s = Math.floor((gap % (minute)) / (second));
 
-	document.querySelector('.day').innerText = d;
-	document.querySelector('.hour').innerText = h;
-	document.querySelector('.minute').innerText = m;
 	document.querySelector('.second').innerText = s;
+	document.querySelector('.minute').innerText = m;
+	document.querySelector('.hour').innerText = h;
+	document.querySelector('.day').innerText = d;
 }
 
 setInterval(() => {
@@ -256,8 +256,28 @@ modalcarousel.owlCarousel({
 	margin: 10,
 	autoplay: true,
 	autoplayTimeout: 2000,
-	autoplayHoverPause: true
+	autoplayHoverPause: true,
+	responsiveClass: true,
+	responsive: {
+		0: {
+			items: 1,
+		},
+		768: {
+			items: 1,
+		},
+		991: {
+			items: 1,
+		},
+		1024: {
+			items: 1,
+		},
+		1200: {
+			items: 1
+		},
+
+	},
 });
+
 
 
 $(function () {
