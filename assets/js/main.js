@@ -10,6 +10,32 @@ const navShow = () => {
 }
 navShow();
 
+let iconSearch = document.querySelector('.icon-search'),
+	searchInput = document.querySelector('.search-input');
+
+iconSearch.addEventListener('click', function () {
+	searchInput.classList.toggle('active');
+});
+
+$(function () {
+	$('.preview').click(function () {
+		$('.menu-popup-list').addClass('open');
+
+	});
+
+	$('.popup-close').click(function () {
+		$('.menu-popup-list').removeClass('open')
+
+	});
+
+	$('.menu-popup-list').click(function () {
+		$('.menu-popup-list').removeClass('open')
+
+	})
+
+});
+
+
 const countDate = new Date('feb 30,2023 00:00:00').getTime();
 
 function newDate() {
@@ -59,18 +85,6 @@ dropdowns.forEach(dropdown => {
 	});
 });
 
-$(function () {
-	$('.preview').click(function () {
-		$('.menu-popup-list').addClass('open');
-
-	});
-
-	$('.popup-close').click(function () {
-		$('.menu-popup-list').removeClass('open')
-
-	})
-
-});
 
 $('.autoplay').owlCarousel({
 	loop: true,
@@ -364,7 +378,7 @@ $(document).ready(function () {
 let menuPopup = document.querySelector(".menu-popup");
 let previewBox = menuPopup.querySelectorAll(".modal");
 
-document.querySelectorAll(".similar-product").forEach(product => {
+document.querySelectorAll(".similar-product ").forEach(product => {
 	product.onclick = () => {
 		menuPopup.style.display = "flex";
 		let name = product.getAttribute("data-name");
@@ -381,9 +395,16 @@ previewBox.forEach(close => {
 	close.querySelector('.fa-xmark').onclick = () => {
 		close.classList.remove('active')
 		menuPopup.style.display = "none";
-
 	}
 });
+
+
+$('.menu-popup').click(function () {
+	$('.menu-popup').remove('active');
+	menuPopup.style.display = "none";
+
+})
+
 
 
 
